@@ -1,7 +1,8 @@
 // trck
 var cohaTrkLive    = true
 var cohaTrkDebugUrl = 'http://10.0.0.64:8000/coha-tracking/coha-tracking-server'
-var cohaTrkLiveUrl  = 'https://tools.corporate-happiness.de/coha-tracking-server'
+// var cohaTrkLiveUrl  = 'https://tools.corporate-happiness.de/coha-tracking-server'
+var cohaTrkLiveUrl  = 'https://das-neue-fuehren.de/coha-tracking-server'
 
 var cohaTrk = {
     trk_url: cohaTrkLive ? cohaTrkLiveUrl : cohaTrkDebugUrl, // '/coha-tracking/coha-tracking-server/',
