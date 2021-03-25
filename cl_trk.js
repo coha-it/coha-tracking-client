@@ -1,6 +1,13 @@
 // trck
+// const cohaTrkProtocol = 'http'
+const cohaTrkProtocol    = 'https'
+// const cohaTrkDomain   = '10.0.0.64:8000'
+const cohaTrkDomain      = 'tools.corporate-happiness.de'
 
 var cohaTrk = {
+    trk_url: cohaTrkProtocol + '://' + cohaTrkDomain + '/coha-tracking/coha-tracking-server/',
+    method: 'POST',
+
     guid: function () {
         function s4 () {
             return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
@@ -20,27 +27,32 @@ var cohaTrk = {
         return 'error_local_storage';
     },
     getUsername: function () {
-        return 'jo'
+        return jQuery('#_coha_trck_uid_421').val() || 'nousername'
     }
 }
 
+cohaTrk.ajax = function (_data) {
+    jQuery.ajax({
+        method: cohaTrk.method,
+        url: cohaTrk.trk_url,
+        data: _data,
+    });
+}
+
 jQuery( document ).ready(function($) {
-    // Variables
-    const trk_url = 'http://10.0.0.64:8000/coha-tracking/coha-tracking-server/';
-    const method = 'POST'
-    const data = {
+    cohaTrk.ajax({
         _href:        window.location.href || '',
-        _type:        'open' || '',
+        _type:        'open',
         _agent:       JSON.stringify(navigator?.userAgent || ''),
         _username:    cohaTrk.getUsername(),
         _userid:      cohaTrk.getRandomId(),
-    }
+    })
 
-    console.log(data)
-
-    $.ajax({
-        method: method,
-        url: trk_url,
-        data: data,
-    });
+    setInterval(() => {
+        cohaTrk.ajax({
+            _type: 'ping',
+            _username:  cohaTrk.getUsername,
+            _userid:    cohaTrk.getRandomId,
+        })
+    }, 10 * 1000);
 });
