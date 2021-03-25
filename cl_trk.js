@@ -3,9 +3,11 @@
 const cohaTrkProtocol    = 'https'
 // const cohaTrkDomain   = '10.0.0.64:8000'
 const cohaTrkDomain      = 'tools.corporate-happiness.de'
+// const cohaTrkPath     = 'coha-tracking/coha-tracking-server';
+const cohaTrkPath        = 'coha-tracking-server';
 
 var cohaTrk = {
-    trk_url: cohaTrkProtocol + '://' + cohaTrkDomain + '/coha-tracking/coha-tracking-server/',
+    trk_url: cohaTrkProtocol + '://' + cohaTrkDomain + '/' + cohaTrkPath; // '/coha-tracking/coha-tracking-server/',
     method: 'POST',
 
     guid: function () {
