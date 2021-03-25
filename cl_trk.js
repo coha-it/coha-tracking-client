@@ -5,7 +5,7 @@ var cohaTrkDebugUrl = 'http://10.0.0.64:8000/coha-tracking/coha-tracking-server'
 var cohaTrkLiveUrl  = 'https://das-neue-fuehren.de/coha-tracking-server'
 
 if (window?.location?.origin) {
-	cohaTrkLiveUrl = window.location.origin + 'coha-tracking-server'
+	cohaTrkLiveUrl = window.location.origin + '/coha-tracking-server'
 }
 
 var cohaTrk = {
