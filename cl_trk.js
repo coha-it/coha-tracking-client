@@ -2,10 +2,10 @@
 var cohaTrkLive    = true
 var cohaTrkDebugUrl = 'http://10.0.0.64:8000/coha-tracking/coha-tracking-server'
 // var cohaTrkLiveUrl  = 'https://tools.corporate-happiness.de/coha-tracking-server'
-var cohaTrkLiveUrl  = 'https://das-neue-fuehren.de/server-uv82942.php'
+var cohaTrkLiveUrl  = 'https://das-neue-fuehren.de/coha-tracking-server/'
 
 if (window.location.origin) {
-	cohaTrkLiveUrl = window.location.origin + '/server-uv82942.php'
+	cohaTrkLiveUrl = window.location.origin + '/coha-tracking-server/'
 }
 
 var cohaTrk = {
