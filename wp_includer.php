@@ -12,5 +12,6 @@ function wp_coha_trk() {
     wp_enqueue_script('my_coha_trk_script');
 }
 
-add_action( 'wp_enqueue_scripts', 'wp_coha_trk', 999 );
-
+if($tracking_active) {
+	add_action( 'wp_enqueue_scripts', 'wp_coha_trk', 999 );
+}
